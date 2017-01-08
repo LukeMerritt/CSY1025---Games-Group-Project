@@ -16,6 +16,8 @@
 	public class Level1Class extends SceneClass
 	{
 		
+		//Declairing variables
+		
 		public var lvl1Background: BasicBG;
 		public var player: LincolnPork;
 		
@@ -23,8 +25,12 @@
 		{
 			// constructor code.
 			
+			//Initialising variables
+			
 			lvl1Background = new BasicBG;
 			player = new LincolnPork;
+			
+			//Adding children from the parent variables
 			
 			addChild(lvl1Background);
 			
