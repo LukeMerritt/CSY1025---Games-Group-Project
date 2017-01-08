@@ -18,8 +18,44 @@
 		
 		//Declairing variables
 		
+			//Background / Scene
+		
 		public var lvl1Background: BasicBG;
-		public var player: LincolnPork;
+		public var room1Cover: Room1CoverImage;
+		public var room2Cover: Room2CoverImage;
+		public var room3Cover: Room3CoverImage;
+		public var room4Cover: Room4CoverImage;
+		public var room5Cover: Room5CoverImage;
+		public var bossRoomCover: BossRoomCover;
+		public var bossRoom: BossRoomImage;
+		public var sceneMeat: HangingMeatImage;
+		
+			//Object variables
+		
+		public var crateJumpObstacle: CrateJumpObstacle;
+		public var singleCrate: CrateImage;
+		public var smallCrate: SmallCrateStack;
+		public var mediumCrate: MediumCrateStack;
+		public var largeCrate: LargeCrateStack;
+		public var haybale: HaybaleImage;
+		public var hiddenHaybale: HiddenInHaybaleImage;
+		public var spring: SpringPadImage;
+		public var stairs: StairsImage;
+		public var oppositeStairs: OppositeStairsImage;
+		public var stairSeperator: StairSeperatorImage;
+		public var light: LightImage;
+		public var lightEffect: LightEffectImage;
+		
+			//Collectables
+		
+		public var lockedCage: ClosedCageImage;
+		public var openCage: OpenCageImage;
+		public var key: KeyImage;
+		//public var pig1: Pig1
+		
+			//Player
+		
+		public var lincolnPork: LincolnPork;
 		
 		public function Level1Class() 
 		{
@@ -28,15 +64,15 @@
 			//Initialising variables
 			
 			lvl1Background = new BasicBG;
-			player = new LincolnPork;
+			lincolnPork = new LincolnPork;
 			
 			//Adding children from the parent variables
 			
 			addChild(lvl1Background);
 			
-			addChild(player);
-				player.x = 200;
-				player.y = 200;
+			addChild(lincolnPork);
+				lincolnPork.x = 200;
+				lincolnPork.y = 200;
 						
 		}
 		
