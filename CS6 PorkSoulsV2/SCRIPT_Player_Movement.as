@@ -14,9 +14,15 @@
 	public class SCRIPT_Player_Movement extends MovieClip{
 		
 		public var playerSpeed = 10;
-		public var playerGravity:Number = 10;
-		public var playerJumping:Boolean = false;
-		public var playerJumpPower:Number = 0;
+		
+		public var GAME_level_one_p1:GAME_Level_One_P1 = new GAME_Level_One_P1();
+		//public var myVar:Number = someClass.getSomeVar();
+		
+		//JUMPING VARIABLES.
+		
+		public var gravity:Number = 10;
+		public var jumping:Boolean = false;
+		public var jumpPower:Number = 0;
 
 		public function SCRIPT_Player_Movement() {
 			
@@ -33,22 +39,35 @@
 			
 			trace(e.keyCode);
 			
-			if (e.keyCode == 37) {
+			if (e.keyCode == 37 && this.x !== 918) {
 													
 				this.x -= playerSpeed;
 
 			}
 			
+			else if (e.keyCode == 37 && this.x == 918 && frame1.x !<0) {
+				
+			}
+			
 			if (e.keyCode == 38) {
 				
-				keyUp = true;
+				if(jumping != true){
+					
+					jumpPower = -50;
+					jumping = true;
+				
+        		}
 								
 			}
 			
-			if (e.keyCode == 39) {
+			if (e.keyCode == 39 && this.x !== 918) {
 				
 				this.x += playerSpeed;
 
+			}
+			
+			else if (e.keyCode == 37 && this.x !== 918) {
+				
 			}
 			
 			if (e.keyCode == 40) {
@@ -66,24 +85,19 @@
 		}
 		
 		function updateHandler(evt:Event):void {
-			if(playerJumping) {
+			
+			if(jumping){
 				
-				this.y += playerJumpPower;
-				playerJumpPower += playerGravity;
-
-				if(this.y >= stage.stageHeight) {
+				player.y += jumpPower;
+				jumpPower += gravity;
+		
+				if(player.y >= 768){
 					
-					playerJumping = false;
-					this.y = stage.stageHeight;
+					jumping = false;
+					player.y = 768;
 					
 				}
 				
-				if (this.y <= 960) {
-					
-					playerJumping = false;
-					
-				}
-					
 			}
 			
 		}    

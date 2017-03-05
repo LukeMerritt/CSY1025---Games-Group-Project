@@ -14,36 +14,56 @@
 	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
 	import flash.display.SimpleButton;
+	import flash.system.fscommand;
+	import flash.display.StageDisplayState;
 	
 	public class SCRIPT_Home_Screen extends SCRIPT_Scene_Class {
 		
-		public var playButton:PLAYBUTTON;
-		public var optionsButton:OPTIONSBUTTON;
-		public var creditsButton:CREDITSBUTTON;
+		public var logo_ASSET:Logo_ASSET;
+		
+		public var play_BUTTON:Play_BUTTON;
+		public var options_BUTTON:Options_BUTTON;
+		public var leaderboard_BUTTON:Leaderboard_BUTTON;
+		public var exit_BUTTON:Exit_BUTTON;
+
 		
 		public function SCRIPT_Home_Screen() {
  			
 			//Constructor code
+			
+			SCRIPT_Game_Manager.getInstance().stage.displayState = StageDisplayState.FULL_SCREEN;
 									
 			//VARIABLE TO OBJECT DECLARATION.
 			
-			playButton = new PLAYBUTTON;
-				addChild (playButton);
-					playButton.x = 100;
-					playButton.y = 100;
-						playButton.addEventListener(MouseEvent.MOUSE_DOWN, playButtonClicked);
+			logo_ASSET = new Logo_ASSET;
+				addChild (logo_ASSET);
+					logo_ASSET.x = 248;
+					logo_ASSET.y = 0;
+						
+			play_BUTTON = new Play_BUTTON;
+				addChild(play_BUTTON);
+					play_BUTTON.x = 682;
+					play_BUTTON.y = 337;
+					play_BUTTON.addEventListener(MouseEvent.MOUSE_DOWN, playButtonClicked)
 			
-			optionsButton = new OPTIONSBUTTON;
-				addChild (optionsButton);
-					optionsButton.x = 400;
-					optionsButton.y = 36;
-						optionsButton.addEventListener(MouseEvent.MOUSE_DOWN, optionsButtonClicked);
+			options_BUTTON = new Options_BUTTON;
+				addChild (options_BUTTON);
+					options_BUTTON.x = 481;
+					options_BUTTON.y = 487;
+						options_BUTTON.addEventListener(MouseEvent.MOUSE_DOWN, optionsButtonClicked);
 			
-			creditsButton = new CREDITSBUTTON;
-				addChild (creditsButton);
-					creditsButton.x = 950;
-					creditsButton.y = 36;
-						creditsButton.addEventListener(MouseEvent.MOUSE_DOWN, creditsButtonClicked);
+			leaderboard_BUTTON = new Leaderboard_BUTTON;
+				addChild (leaderboard_BUTTON);
+					leaderboard_BUTTON.x = 298;
+					leaderboard_BUTTON.y = 641;
+						leaderboard_BUTTON.addEventListener(MouseEvent.MOUSE_DOWN, leaderboardButtonClicked);
+			
+			exit_BUTTON = new Exit_BUTTON;
+				addChild (exit_BUTTON);
+					exit_BUTTON.x = 645;
+					exit_BUTTON.y = 819;
+						exit_BUTTON.addEventListener(MouseEvent.MOUSE_DOWN, exitButtonClicked);
+			
 	
 		}
 
@@ -55,7 +75,8 @@
 			
 			this.removeEventListener(MouseEvent.CLICK, playButtonClicked);
 			this.removeEventListener(MouseEvent.CLICK, optionsButtonClicked);
-			this.removeEventListener(MouseEvent.CLICK, creditsButtonClicked);
+			this.removeEventListener(MouseEvent.CLICK, leaderboardButtonClicked);
+			this.removeEventListener(MouseEvent.CLICK, exitButtonClicked);
 			
 		}
 		
@@ -71,15 +92,21 @@
 			
 			trace("Options Button Clicked");
 						
-			SCRIPT_Game_Manager.getInstance().GoToScene("options");
+			SCRIPT_Game_Manager.getInstance().GoToScene("OPTIONS_SCREEN");
 						
 		}
 		
-		public function creditsButtonClicked(e:MouseEvent) {
+		public function leaderboardButtonClicked(e:MouseEvent) {
 			
-			trace("Credit Button Clicked");
+			trace("Leaderboard Button Clicked");
 			
-			SCRIPT_Game_Manager.getInstance().GoToScene("credits");
+			SCRIPT_Game_Manager.getInstance().GoToScene("LEADERBOARD_SCREEN");
+						
+		}
+		
+		public function exitButtonClicked(e:MouseEvent) {
+							
+      		fscommand("quit");
 						
 		}
 		

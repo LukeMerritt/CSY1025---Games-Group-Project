@@ -5,12 +5,12 @@
 	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
 	
-	public class GAME_Credits extends SCRIPT_Scene_Class {
+	public class GAME_Leaderboard extends SCRIPT_Scene_Class {
 		
 		
-		public function GAME_Credits() {
+		public function GAME_Leaderboard() {
 			
-			trace("Credits scene constructor");
+			trace("Leaderboard scene constructor");
 
 			SCRIPT_Game_Manager.getInstance().stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
 			
@@ -19,7 +19,7 @@
 		
 		override public function OnLeaveScene()	{
 			
-			trace("leaving Credits scene");
+			trace("leaving Leaderboard scene");
 			
 			removeChildren();
 			

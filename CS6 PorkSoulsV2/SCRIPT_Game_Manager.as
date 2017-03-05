@@ -38,7 +38,8 @@
 			}
 			
 			if(name=="HOME_SCREEN") curScene = new SCRIPT_Home_Screen();
-			if(name=="CREDITS_SCREEN") curScene = new GAME_Credits();
+			if(name=="OPTIONS_SCREEN") curScene = new GAME_Options();
+			if(name=="LEADERBOARD_SCREEN") curScene = new GAME_Leaderboard();
 			
 			if(name=="LEVEL_ONE_PART_ONE") curScene = new GAME_Level_One_P1();
 				if(name=="LEVEL_ONE_PART_TWO") curScene = new GAME_Level_One_P2();
@@ -52,7 +53,7 @@
 				//if(name=="LEVEL_THREE_PART_TWO") curScene = new GAME_Level_Three_P2();
 					//if(name=="LEVEL_THREE_PART_THREE") curScene = new GAME_Level_Three_P3();
 			
-			if(name=="OPTIONS_SCREEN") curScene = new GAME_Options();
+			//if(name=="OPTIONS_SCREEN") curScene = new GAME_Options();
 			addChild(curScene);
 			
 		}

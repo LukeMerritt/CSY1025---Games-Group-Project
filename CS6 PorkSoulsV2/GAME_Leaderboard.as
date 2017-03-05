@@ -6,15 +6,15 @@
 	import flash.events.MouseEvent;
 	import flash.display.StageDisplayState;
 	
-	public class GAME_Options extends SCRIPT_Scene_Class {
+	public class GAME_Leaderboard extends SCRIPT_Scene_Class {
 		
 		
-		public function GAME_Options() {
+		public function GAME_Leaderboard() {
 			
-			trace("GAME_Options constructor");
+			trace("Leaderboard scene constructor");
 			
 			SCRIPT_Game_Manager.getInstance().stage.displayState = StageDisplayState.FULL_SCREEN;
-
+			
 			SCRIPT_Game_Manager.getInstance().stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
 			
 		}
@@ -22,7 +22,7 @@
 		
 		override public function OnLeaveScene()	{
 			
-			trace("leaving GAME_Options scene");
+			trace("leaving Leaderboard scene");
 			
 			removeChildren();
 			
